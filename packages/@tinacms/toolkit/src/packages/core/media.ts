@@ -216,7 +216,8 @@ export class MediaManager implements MediaStore {
         fieldName,
         formValues,
       })
-      const url = await this.store.previewSrc(src, fieldName, formValues)
+      let url = await this.store.previewSrc(src, fieldName, formValues);
+      url = "/images/" + url;
       this.events.dispatch({
         type: 'media:preview:success',
         src,
